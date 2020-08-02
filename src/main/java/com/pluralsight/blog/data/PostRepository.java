@@ -50,12 +50,9 @@ public class PostRepository {
 	}
 
 	public Post findById(Long id) {
-		List<Post> allPosts = getAllPosts();
-		for (int i = 0; i < allPosts.size(); i++) {
-			if (id == allPosts.get(i).getId()) {
-				return allPosts.get(i);
-			}
-		}
+		for (Post post : ALL_POSTS)
+			if (post.getId() == id)
+				return post;
 		return null;
 	}
 }
